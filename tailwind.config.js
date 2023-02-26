@@ -8,7 +8,7 @@ module.exports = {
       current: 'currentColor',
       "sweed-gray": "#151515",
       "sweed-dark": "#000000",
-      "sweed-green": "#A7D3AA",
+      "sweed-color": "#A7D3AA",
       "sweed-white": "#EAEAEA",
     },
     extend: {},
