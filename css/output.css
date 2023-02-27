@@ -716,6 +716,10 @@ video {
   height: 750px;
 }
 
+.h-\[650px\] {
+  height: 650px;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -1193,6 +1197,26 @@ video {
 
   .sm\:h-\[395px\] {
     height: 395px;
+  }
+
+  .sm\:h-\[600px\] {
+    height: 600px;
+  }
+
+  .sm\:h-\[700px\] {
+    height: 700px;
+  }
+
+  .sm\:h-\[795px\] {
+    height: 795px;
+  }
+
+  .sm\:h-\[800px\] {
+    height: 800px;
+  }
+
+  .sm\:h-\[805px\] {
+    height: 805px;
   }
 
   .sm\:w-auto {
