@@ -13,6 +13,7 @@ module.exports = {
       "sweed-dark": "#000000",
       "sweed-color": "#A7D3AA",
       "sweed-color-light": "#AAF898",
+      "sweed-red": "#d46a6a",
       "sweed-white": "#EAEAEA",
       "white" : "#ffffff",
     },
