@@ -13,7 +13,7 @@
 
 <body class="bg-sweed-white dark:bg-sweed-gray text-sweed-white">
     <!-- nav bar -->
-    <header aria-label="Site Header" class="bg-sweed-gray border-b-2 border-sweed-dark fixed w-full z-20">
+    <header id="mainMenuNavbar" aria-label="Site Header" class="absolute border-sweed-dark w-full z-20 bg-sweed-gray transition-all duration-700">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
             <div class="md:flex md:items-center md:gap-12">
@@ -40,9 +40,9 @@
             </div>
       
             <div class="flex items-center gap-4">
-              <div class="sm:flex sm:gap-4">
+              <div class="sm:flex sm:gap-4 h-10">
                 <a
-                  class="rounded-md bg-sweed-color hover:bg-sweed-color-light flex flex-row px-5 py-3 text-sm font-medium text-sweed-gray shadow"
+                  class="rounded-md bg-sweed-color hover:bg-sweed-color-light flex flex-row px-5 py-2 text-sm font-medium text-sweed-gray shadow"
                   href="test.html"
                 >
                     <span class="hidden sm:block">Login</span>
@@ -51,7 +51,7 @@
       
                 <div class="hidden sm:flex">
                   <a
-                    class="flex flex-row rounded-md bg-sweed-white hover:bg-white px-5 py-3 text-sm font-medium text-sweed-gray"
+                    class="flex flex-row rounded-md bg-sweed-white hover:bg-white px-5 py-2 text-sm font-medium text-sweed-gray"
                     href="test.html"
                   >
                     <span class="hidden sm:block">Cart</span>
@@ -141,7 +141,7 @@
         </p>
       </header>
   
-      <ul class="grid grid-cols-1 gap-4 mt-8 lg:grid-cols-3">
+      <ul class="grid grid-cols-1 gap-4 mt-20 lg:grid-cols-3">
         <li>
           <a href="#" class="relative block group">
 
@@ -163,10 +163,10 @@
             <div
               class="absolute inset-0 flex flex-col items-start justify-end p-6"
             >
-              <h3 class="text-xl font-medium text-white">Drink and Appetizer</h3>
+              <h3 class="px-2 py-1 bg-sweed-gray rounded opacity-75 text-xl font-medium text-white">Drink and Appetizer</h3>
   
               <span
-                class="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                class="mt-1.5 inline-block bg-black px-2 py-1 bg-sweed-gray rounded opacity-75 text-xs font-medium uppercase tracking-wide text-white"
               >
                 Order Now
               </span>
@@ -194,10 +194,10 @@
             <div
               class="absolute inset-0 flex flex-col items-start justify-end p-6"
             >
-              <h3 class="text-xl font-medium text-white"><span class="text-sweed-color-light">Stoned</span>-Free foods</h3>
+              <h3 class="px-2 py-1 bg-sweed-gray rounded opacity-75 text-xl font-medium text-white"><span class="text-sweed-color-light">Stoned</span>-Free foods</h3>
   
               <span
-                class="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                class="mt-1.5 inline-block px-2 py-1 bg-sweed-gray rounded opacity-75 text-xs font-medium uppercase tracking-wide text-white"
               >
                 Order Now
               </span>
@@ -222,12 +222,12 @@
               </div>
 
             <div
-              class="absolute inset-0 flex flex-col items-start justify-end p-6"
+              class="shadow-2xl absolute inset-0 flex flex-col items-start justify-end p-6 text-sweed-white font-medium"
             >
-              <h3 class="text-xl font-medium text-white"><span class="text-sweed-color-light">Stoner</span> foods</h3>
+              <h3 class="bg-opacity-75 bg-sweed-gray px-2 rounded py-1 text-xl "><span class="text-sweed-color-light">Stoner</span> foods</h3>
   
               <span
-                class="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                class="bg-sweed-gray rounded mt-1.5 inline-block px-2 py-1 bg-opacity-75 text-xs uppercase tracking-wide"
               >
                 Stoned Now
               </span>
@@ -347,7 +347,7 @@
       </ul>
     </div>
   </footer>
-  
+  <script src="js/scrollNavbar.js"></script>
 </body>
 
 </html>
