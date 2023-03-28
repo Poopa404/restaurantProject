@@ -1,0 +1,121 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+<body class="bg-sweed-dark text-sweed-white"></body>
+	<section class="lg:w-[70%] w-[80%]  mx-auto">
+		<div class="mx-auto max-w-screen-xl py-8 sm:py-12 lg:px-8">
+			<div class="mx-auto max-w-3xl">
+				<header class="text-center bg-sweed-gray py-4 rounded-lg">
+					<h1 class="text-xl font-bold text-sweed-color sm:text-3xl">Your Cart</h1>
+				</header>
+				<div class="mt-4 bg-sweed-gray p-4 rounded-lg text-sweed-white">
+					<ul class="space-y-4">
+						<li class="flex items-center gap-4">
+							<div>
+								<label for="Quantity" class="sr-only"> Quantity </label>
+								<div class="flex items-center rounded border border-sweed-dark">
+									<button type="button"
+										class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
+										&minus;
+									</button>
+									<span>
+										<input type="number" id="Quantity" value="1"
+											class="text-sweed-color bg-sweed-dark h-8 w-8 border-y-0 border-gray-200 text-center sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+									</span>
+									<button type="button"
+										class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
+										&plus;
+									</button>
+								</div>
+							</div>
+							<div class="h-16 w-16 rounded bg-sweed-white"></div>
+							<div>
+								<h3 class="text-sm">Food One</h3>
+							</div>
+							<div class="flex flex-1 items-center justify-end gap-2">
+								<span>400฿</span>
+							</div>
+						</li>
+						<li class="flex items-center gap-4">
+							<div>
+								<label for="Quantity" class="sr-only"> Quantity </label>
+								<div class="flex items-center rounded border border-sweed-dark">
+									<button type="button"
+										class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
+										&minus;
+									</button>
+									<span>
+										<input type="number" id="Quantity" value="1"
+											class="text-sweed-color bg-sweed-dark h-8 w-8 border-y-0 border-gray-200 text-center sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+									</span>
+									<button type="button"
+										class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
+										&plus;
+									</button>
+								</div>
+							</div>
+							<div class="h-16 w-16 rounded bg-sweed-white"></div>
+							<div>
+								<h3 class="text-sm">Food Two</h3>
+							</div>
+							<div class="flex flex-1 items-center justify-end gap-2">
+								<span>400฿</span>
+							</div>
+						</li>
+						<li class="flex items-center gap-4">
+							<div>
+								<label for="Quantity" class="sr-only"> Quantity </label>
+								<div class="flex items-center rounded border border-sweed-dark">
+									<button type="button"
+										class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
+										&minus;
+									</button>
+									<span>
+										<input type="number" id="Quantity" value="1"
+											class="text-sweed-color bg-sweed-dark h-8 w-8 border-y-0 border-gray-200 text-center sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+									</span>
+									<button type="button"
+										class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
+										&plus;
+									</button>
+								</div>
+							</div>
+							<div class="h-16 w-16 rounded bg-sweed-white"></div>
+							<div>
+								<h3 class="text-sm">Food Three</h3>
+							</div>
+							<div class="flex flex-1 items-center justify-end gap-2">
+								<span>400฿</span>
+							</div>
+						</li>
+					</ul>
+					<div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
+						<div class="w-screen max-w-lg space-y-4">
+							<dl class="space-y-0.5">
+								<div class="flex justify-between">
+									<dt>Subtotal</dt>
+									<dd>฿250</dd>
+								</div>
+								<div class="flex justify-between">
+									<dt>VAT</dt>
+									<dd>฿25</dd>
+								</div>
+								<div class="flex justify-between !text-base font-medium text-sweed-color">
+									<dt>Total</dt>
+									<dd>฿200</dd>
+								</div>
+							</dl>
+							<div class="flex justify-end">
+								<a href="trackOrder.html"
+									class="block rounded bg-sweed-color px-5 py-3 font-medium text-sweed-gray transition hover:bg-sweed-color-light">
+									Checkout
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
