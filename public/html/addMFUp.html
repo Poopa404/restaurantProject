@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/output.css">
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>F00D</title>
+</head>
+<body class="bg-sweed-dark">
+<!-- list -->
+<section class="">
+    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+        <div class="flow-root">
+            <nav aria-label="Main Nav" class="flex flex-col space-y-2">
+              <div>
+                <strong class="block text-xs font-medium uppercase text-sweed-color">
+                  General
+                </strong>
+          
+                <ul class="mt-2 space-y-1 text-sweed-white">
+                  <li>
+                    <a href="" class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-sweed-white">
+                      Profile
+                    </a>
+                  </li>
+          
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium">
+                      Team
+                    </a>
+                  </li>
+          
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium">
+                      Projects
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          
+              <div>
+                <strong class="block text-xs font-medium uppercase text-sweed-color">
+                  Support
+                </strong>
+          
+                <ul class="mt-2 space-y-1 text-sweed-white">
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                      Update
+                    </a>
+                  </li>
+          
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                      Help
+                    </a>
+                  </li>
+          
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          
+              <div>
+                <strong class="block text-xs font-medium uppercase text-sweed-color">
+                  Profile
+                </strong>
+          
+                <ul class="mt-2 space-y-1 text-sweed-white">
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                      Details
+                    </a>
+                  </li>
+          
+                  <li>
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                      Subscription
+                    </a>
+                  </li>
+          
+                  <li>
+                    <form action="/logout">
+                      <button
+                        type="submit"
+                        class="block w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                      >
+                        Logout
+                      </button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          
+  
+        <div class="rounded-lg bg-sweed-gray p-8 shadow-lg lg:col-span-3 lg:p-12">
+          <form action="" class="space-y-4">
+            <div>
+              <label class="sr-only" for="name">Name</label>
+              <input
+                class="w-full rounded-lg p-3 text-sm"
+                placeholder="Name"
+                type="text"
+                id="name"
+              />
+            </div>
+  
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label class="sr-only" for="email">Email</label>
+                <input
+                  class="w-full rounded-lg p-3 text-sm"
+                  placeholder="Price"
+                  type="price"
+                  id="price"
+                />
+              </div>
+  
+            </div>
+<!-- catagories -->
+            <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+              <div>
+                <input
+                  class="peer sr-only"
+                  id="Stoner"
+                  type="radio"
+                  tabindex="-1"
+                  name="option"
+                />
+  
+                <label
+                  for="Stoner"
+                  class="block w-full rounded-lg border border-sweed-color text-sweed-color p-3 hover:border-sweed-white peer-checked:border-sweed-dark peer-checked:bg-sweed-color peer-checked:text-sweed-gray"
+                  tabindex="0"
+                >
+                  <span class="text-sm font-medium "> Stoner </span>
+                </label>
+              </div>
+  
+              <div>
+                <input
+                  class="peer sr-only"
+                  id="Stone-free"
+                  type="radio"
+                  tabindex="-1"
+                  name="option"
+                />
+  
+                <label
+                  for="Stone-free"
+                  class="block w-full rounded-lg border  border-sweed-color text-sweed-color p-3 hover:border-sweed-white peer-checked:border-sweed-dark peer-checked:bg-sweed-color peer-checked:text-sweed-gray"
+                  tabindex="0"
+                >
+                  <span class="text-sm font-medium"> Stone-free </span>
+                </label>
+              </div>
+  
+              <div>
+                <input
+                  class="peer sr-only"
+                  id="Drink"
+                  type="radio"
+                  tabindex="-1"
+                  name="option"
+                />
+  
+                <label
+                  for="Drink"
+                  class="block w-full rounded-lg border  border-sweed-color text-sweed-color p-3 hover:border-sweed-white peer-checked:border-sweed-dark peer-checked:bg-sweed-color peer-checked:text-sweed-gray"
+                  tabindex="0"
+                >
+                  <span class="text-sm font-medium"> Drink </span>
+                </label>
+              </div>
+            </div>
+<!-- pic input -->
+            <div class="flex items-center justify-center w-full">
+                <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-sweed-white border-sweed-dark">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                    </div>
+                    <input id="dropzone-file" type="file" class="hidden" />
+                </label>
+            </div> 
+  
+            <div class="mt-4">
+              <button
+                type="submit"
+                class="inline-block w-full rounded-lg bg-sweed-gray px-5 py-3 font-medium text-sweed-color sm:w-auto"
+              >
+                Send Enquiry
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>

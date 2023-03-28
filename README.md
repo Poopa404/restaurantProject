@@ -6,5 +6,5 @@
 > ng serve
 ---
 #### Run Tailwind CLI if you want to start editing html
-> npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
+> npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
 ---
