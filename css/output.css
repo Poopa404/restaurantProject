@@ -700,14 +700,6 @@ video {
   margin-top: 2px;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
-.mr-auto {
-  margin-right: auto;
-}
-
 .block {
   display: block;
 }
@@ -857,6 +849,10 @@ video {
   width: 74%;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
 .w-auto {
   width: auto;
 }
@@ -872,10 +868,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[80\%\] {
-  width: 80%;
 }
 
 .max-w-3xl {
@@ -1807,10 +1799,6 @@ video {
 
   .lg\:min-h-screen {
     min-height: 100vh;
-  }
-
-  .lg\:w-\[60\%\] {
-    width: 60%;
   }
 
   .lg\:w-\[70\%\] {
