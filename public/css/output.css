@@ -1786,6 +1786,11 @@ video {
   color: rgb(21 21 21 / var(--tw-text-opacity));
 }
 
+.hover\:text-sweed-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(234 234 234 / var(--tw-text-opacity));
+}
+
 @keyframes pulse {
   50% {
     opacity: .5;
