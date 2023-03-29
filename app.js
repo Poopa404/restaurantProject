@@ -12,12 +12,30 @@ app.listen("3000", () => {
   console.log("Server is running on Port 3000.");
 });
 
+var menu = [
+  {
+    type: "stoner",
+    name: "Stoner Food",
+    items: ["item1","item2","item3"]
+  },
+  {
+    type: "free",
+    name: "Stoned-Free Food",
+    items: ["item1","item2","item3"]
+  },
+  {
+    type: "drink",
+    name: "Drink & Appetizer",
+    items: ["item1","item2","item3"]
+  }
+];
+
 app.get("/", (req, res) => {
   res.render("homePage");
 })
 
 app.get("/menu", (req, res) => {
-  res.render("menu");
+  res.render("menu", {menu: menu});
 })
 
 app.get("/login", (req, res) => {
