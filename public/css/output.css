@@ -1811,6 +1811,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-sweed-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 234 234 / var(--tw-bg-opacity));
+}
+
 .hover\:text-sweed-color:hover {
   --tw-text-opacity: 1;
   color: rgb(167 211 170 / var(--tw-text-opacity));

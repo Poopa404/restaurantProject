@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/output.css">
+	<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <title>SWEED | Order detail</title>
+</head>
+<body class="bg-sweed-dark">
+    <!-- nav bar -->
+	<header id="mainMenuNavbar" aria-label="Site Header"
+    class="absolute border-sweed-dark w-full z-20 bg-transparent transition-all duration-700 top-0 left-0">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="md:flex md:items-center md:gap-12">
+          <a class="flex flex-row text-sweed-color text-lg py-2 px-4" href="">
+            <svg class="w-8 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408.83 342.29">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: currentColor;
+                  }
+                </style>
+              </defs>
+              <path class="cls-1"
+                d="M227.85,263.88l-22.33-22.33S206.22,132,256.45,79c0,0,99.07,104.65,25.12,291.62,0,0,96.27-26.51,143.72-149.3,0,0-55.82,14-93.49,58.6l1.39-32.09s67-54.41,115.82-51.62c0,0,0,114.41-157.67,195.34,0,0,61.39,23.72,125.57-5.58,0,0,5.58-8.37-46-15.35l19.53-19.53s54.42,18.13,64.19,33.48c0,0-85.12,71.16-199.53,15.35-80.93-60-173-16.74-173-16.74s40.46,25.11,113,12.56l30.7,12.55s-107.44,40.47-180-23.72c0,0,68.37-65.58,192.55-19.53,0,0-25.11-97.67-147.9-143.72,0,0,1.4,46.05,67,103.25L130.87,326s-60-50.23-67-129.76c0,0,127,2.79,196.74,164.64,0,0,61.39-129.76-4.19-247C256.45,113.88,223,164.11,227.85,263.88Z"
+                transform="translate(-45.76 -79)" />
+            </svg>
+            <span class="">SWEED</span>
+  
+          </a>
+        </div>
+  
+        
+        <div class="flex items-center gap-4">
+          <div class="sm:flex sm:gap-4 h-10">
+            <a class="rounded-md bg-sweed-color hover:bg-sweed-color-light flex flex-row px-5 py-2 text-sm font-medium text-sweed-gray shadow"
+              href="register.html">
+              <span class="hidden sm:block">Login</span>
+              <svg class="w-6 sm:ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: currentColor;
+                    }
+                  </style>
+                </defs>
+                <path class="cls-1"
+                  d="M250,50a199.33,199.33,0,1,1-77.84,15.71A198.76,198.76,0,0,1,250,50m0-20C128.5,30,30,128.5,30,250a220,220,0,0,0,440,0c0-121.5-98.5-220-220-220Z"
+                  transform="translate(-30 -30)" />
+                <ellipse class="cls-1" cx="220" cy="361" rx="155.62" ry="69" />
+                <path class="cls-1"
+                  d="M250,332a199.47,199.47,0,0,1,141.84,59,200,200,0,0,1-283.68,0A199.47,199.47,0,0,1,250,332m0-20A219.49,219.49,0,0,0,81.13,391a220,220,0,0,0,337.74,0A219.49,219.49,0,0,0,250,312Z"
+                  transform="translate(-30 -30)" />
+                <circle class="cls-1" cx="220.5" cy="171.5" r="76.5" />
+                <path class="cls-1"
+                  d="M250.5,135A66.5,66.5,0,1,1,184,201.5,66.57,66.57,0,0,1,250.5,135m0-20A86.5,86.5,0,1,0,337,201.5,86.5,86.5,0,0,0,250.5,115Z"
+                  transform="translate(-30 -30)" />
+              </svg>
+            </a>
+  
+            <div class="hidden sm:flex">
+              <a class="flex flex-row rounded-md bg-sweed-white hover:bg-white px-5 py-2 text-sm font-medium text-sweed-gray"
+                href="status.html">
+                <span class="hidden sm:block">OrderList</span>
+                
+              </a>
+            </div>
+          </div>
+  
+          <div class="block md:hidden">
+            <button class="rounded bg-sweed-white p-2 text-sweed-gray transition hover:text-sweed-color">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Order detail -->
+  <section class="w-[60%] mx-auto">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="mx-auto max-w-3xl">
+            <header class="text-center bg-sweed-gray py-4 rounded-lg">
+                <h1 class="text-xl font-bold text-sweed-color sm:text-3xl">#001</h1>
+                <h1 class="text-xl font-bold text-sweed-color sm:text-3xl">Krittayoch Jongchisittikul</h1>
+            </header>
+            <div class="bg-sweed-gray w-full min-h-[320px] mt-4 rounded-lg p-4">
+                <div class="justify-center  flex mt-10">
+                    <img class="w-[30%] animate-bounce" src="../images/fryingPan.png" alt="">
+                </div>
+                <div class="text-center animate-pulse">
+                    <span class="text-sweed-white text-lg font-medium">It will be finished in approximately 10 minute.</span>
+                </div>
+            </div>
+            <div class="bg-sweed-gray w-full min-h-[320px] mt-4 rounded-lg p-6" m>
+                <div class="flex justify-between align-middle px-10 pb-4 border-sweed-white border-b">
+                    <button><div class="w-20 h-20">
+                        <img src="../images/checkMark.png" alt="">
+                    </div></button>
+                    <div class="bg-sweed-white rounded h-2 w-20 mt-6"></div>
+                    <button><div class="w-20 h-20">
+                        <img src="../images/fryingPan.png" alt="">
+                    </div></button>
+                    <div class="bg-sweed-white rounded h-2 w-20 mt-6"></div>
+                    <button><div class="w-20 h-20">
+                        <img src="../images/motorbike.png" alt="">
+                    </div></button>
+                </div>
+                <div class="mt-6 flex flex-col">
+                    <span class="text-sweed-color text-lg font-medium">Order detail</span>
+                    <div class="flex justify-between text-sweed-white text-base font-normal">
+                        <span>Food One x1</span>
+                        <span>400฿</span>
+                    </div>
+                    <div class="flex justify-between text-sweed-white text-base font-normal">
+                        <span>Food Two x1</span>
+                        <span>420฿</span>
+                    </div>
+                    <div class="flex justify-between text-sweed-white text-base font-normal">
+                        <span>Food Three x1</span>
+                        <span>360฿</span>
+                    </div>
+                    <div class="text-sweed-white mt-8 flex justify-end border-t border-sweed-white pt-8">
+                        <div class="w-screen max-w-lg space-y-4">
+                            <dl class="space-y-0.5">
+                                <div class="flex justify-between">
+                                    <dt>Subtotal</dt>
+                                    <dd>฿250</dd>
+                                </div>
+
+                                <div class="flex justify-between">
+                                    <dt>VAT</dt>
+                                    <dd>฿25</dd>
+                                </div>
+
+                                <div class="flex justify-between !text-base font-medium text-sweed-color">
+                                    <dt>Total</dt>
+                                    <dd>฿200</dd>
+                                </div>
+                            </dl>
+
+                        </div>
+                    </div>
+
+                    <div class="text-sweed-white mt-8 flex justify-end border-t border-sweed-white pt-8">
+                    <a class="rounded-md bg-sweed-red hover:bg-sweed-white flex flex-row px-5 py-2 text-sm font-medium text-sweed-gray shadow"
+                    href="">
+                    <span class="hidden sm:block">Cancel Order</span>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+</body>
+</html>
