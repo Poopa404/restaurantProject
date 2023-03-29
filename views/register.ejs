@@ -1,166 +1,121 @@
 <%- include('partials/header') %>
-<body class="bg-sweed-gray">
-<section class="bg-sweed-gray">
-    <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
-      <aside
-        class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6"
-      >
-        <img
-          alt="Pattern"
-          src="images/cannabis-background.jpg"
-          class="absolute inset-0 h-full w-full object-cover"
-        />
-      </aside>
-  
-      <main
-        aria-label="Main"
-        class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6"
-      >
-        <div class="max-w-xl lg:max-w-3xl">
-          <a class="block text-blue-600" href="homePage.html">
-            <span class="sr-only">Home</span>
-            <img src="images/sweed-logo-green.svg" alt="Logo" class="h-8 sm:h-10">
-          </a>
-  
-          <h1
-            class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl"
-          >
-            <span class="text-sweed-color-light">Welcome to Sweed 🗿</span> 
-          </h1>
-  
-          <p class="mt-4 leading-relaxed text-gray-500 text-sweed-white">
-            <span class="text-sweed-color-light">Marijuana</span> is a dry, shredded green/brown mix of flowers, stems, seeds, and leaves from the <span class="text-sweed-color-light">Cannabis</span> sativa plant.
-          </p>
-  
-          <form action="#" class="mt-8 grid grid-cols-6 gap-6">
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="FirstName"
-                class="block text-sm font-medium text-gray-700 text-sweed-color-light"
-              >
-                First Name
-              </label>
-  
-              <input
-                type="text"
-                id="FirstName"
-                name="first_name"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="LastName"
-                class="block text-sm font-medium text-gray-700 text-sweed-color-light"
-              >
-                Last Name
-              </label>
-  
-              <input
-                type="text"
-                id="LastName"
-                name="last_name"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-  
-            <div class="col-span-6">
-              <label
-                for="Email"
-                class="block text-sm font-medium text-gray-700 text-sweed-color-light"
-              >
-                Email
-              </label>
-  
-              <input
-                type="email"
-                id="Email"
-                name="email"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="Password"
-                class="block text-sm font-medium text-gray-700 text-sweed-color-light"
-              >
-                Password
-              </label>
-  
-              <input
-                type="password"
-                id="Password"
-                name="password"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label
-                for="PasswordConfirmation"
-                class="block text-sm font-medium text-gray-700 text-sweed-color-light"
-              >
-                Password Confirmation
-              </label>
-  
-              <input
-                type="password"
-                id="PasswordConfirmation"
-                name="password_confirmation"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
-  
-            <div class="col-span-6">
-              <label for="MarketingAccept" class="flex gap-4">
-                <input
-                  type="checkbox"
-                  id="MarketingAccept"
-                  name="marketing_accept"
-                  class="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-offset-gray-900"
-                />
-  
-                <span class="text-sm text-gray-700 text-sweed-white">
-                  I want to receive emails about events, product updates and
-                  company announcements.
-                </span>
-              </label>
-            </div>
-  
-            <div class="col-span-6">
-              <p class="text-sm text-gray-500 text-sweed-white">
-                By creating an account, you agree to our
-                <a href="#" class="text-gray-700 underline text-sweed-color-light">
-                  terms and conditions
-                </a>
-                and
-                <a href="#" class="text-gray-700 underline text-sweed-color-light">
-                  privacy policy </a
-                >.
-              </p>
-            </div>
-  
-            <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-              <button
-                class="inline-block shrink-0 rounded-md border px-12 py-3 text-sm font-medium text-sweed-color-light bg-transparent transition hover:bg-sweed-color-light hover:text-sweed-gray focus:outline-none active:text-sweed-color-light"
-              >
-                Create an account
+
+  <body class="bg-sweed-gray">
+    <section class="bg-sweed-gray">
+      <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+        <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
+          <img alt="Pattern" src="images/cannabis-background.jpg" class="absolute inset-0 h-full w-full object-cover" />
+        </aside>
+
+        <main aria-label="Main"
+          class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6">
+          <div class="max-w-xl lg:max-w-3xl">
+            <form action="/" method="get">
+              <button class="block text-blue-600" type="submit">
+                <span class="sr-only">Home</span>
+                <img src="images/sweed-logo-green.svg" alt="Logo" class="h-8 sm:h-10">
               </button>
-  
+            </form>
+            <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
+              <span class="text-sweed-color-light">Welcome to Sweed 🗿</span>
+            </h1>
+
+            <p class="mt-4 leading-relaxed text-gray-500 text-sweed-white">
+              <span class="text-sweed-color-light">Marijuana</span> is a dry, shredded green/brown mix of flowers,
+              stems, seeds, and leaves from the <span class="text-sweed-color-light">Cannabis</span> sativa plant.
+            </p>
+
+            <form action="/register" method="post" class="mt-8 grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="FirstName" class="block text-sm font-medium text-gray-700 text-sweed-color-light">
+                  First Name
+                </label>
+
+                <input type="text" id="FirstName" name="first_name"
+                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200" />
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="LastName" class="block text-sm font-medium text-gray-700 text-sweed-color-light">
+                  Last Name
+                </label>
+
+                <input type="text" id="LastName" name="last_name"
+                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200" />
+              </div>
+
+              <div class="col-span-6">
+                <label for="Email" class="block text-sm font-medium text-gray-700 text-sweed-color-light">
+                  Email
+                </label>
+
+                <input type="email" id="Email" name="email"
+                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200" />
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="Password" class="block text-sm font-medium text-gray-700 text-sweed-color-light">
+                  Password
+                </label>
+
+                <input type="password" id="Password" name="password"
+                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200" />
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="PasswordConfirmation"
+                  class="block text-sm font-medium text-gray-700 text-sweed-color-light">
+                  Password Confirmation
+                </label>
+
+                <input type="password" id="PasswordConfirmation" name="password_confirmation"
+                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200" />
+              </div>
+
+              <div class="col-span-6">
+                <label for="MarketingAccept" class="flex gap-4">
+                  <input type="checkbox" id="MarketingAccept" name="marketing_accept"
+                    class="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-offset-gray-900" />
+
+                  <span class="text-sm text-gray-700 text-sweed-white">
+                    I want to receive emails about events, product updates and
+                    company announcements.
+                  </span>
+                </label>
+              </div>
+
+              <div class="col-span-6">
+                <p class="text-sm text-gray-500 text-sweed-white">
+                  By creating an account, you agree to our
+                  <a href="#" class="text-gray-700 underline text-sweed-color-light">
+                    terms and conditions
+                  </a>
+                  and
+                  <a href="#" class="text-gray-700 underline text-sweed-color-light">
+                    privacy policy </a>.
+                </p>
+              </div>
+
+              <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+                <button type="submit"
+                  class="inline-block shrink-0 rounded-md border px-12 py-3 text-sm font-medium text-sweed-color-light bg-transparent transition hover:bg-sweed-color-light hover:text-sweed-gray focus:outline-none active:text-sweed-color-light">
+                  Create an account
+                </button>
+              </div>
+            </form>
+            <div class="col-span-6 sm:flex sm:gap-2 mt-6">
               <p class="mt-4 text-sm text-gray-500 text-sweed-white sm:mt-0">
                 Already have an account?
-                <a href="#" class="text-gray-700 underline dark:text-gray-200"
-                  >Log in</a
-                >.
+                <form action="/login" method="get">
+                  <button type="submit" class="text-sweed-color-light underline hover:text-sweed-white">Log in</button>.
+                </form>
               </p>
             </div>
-          </form>
-        </div>
-      </main>
-    </div>
-  </section>
-  
-</body>
-</html>
+          </div>
+        </main>
+      </div>
+    </section>
+
+  </body>
+
+  </html>
