@@ -5,4 +5,19 @@ function checkRange(id) {
 	} else if(quant.value > 99){
 		quant.value = 99;
 	}
+	$('#'+id+'form').submit();
+}
+
+function minusQuantity(id){
+	var currValue = $('#'+id).attr('value');
+	currValue--;
+	$('#'+id).attr('value', currValue);
+	checkRange(id);
+}
+
+function plusQuantity(id){
+	var currValue = $('#'+id).attr('value');
+	currValue++;
+	$('#'+id).attr('value', currValue);
+	checkRange(id);
 }

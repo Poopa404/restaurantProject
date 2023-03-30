@@ -22,12 +22,11 @@ const productSchema = new mongoose.Schema({
 exports.Product = mongoose.model("Product", productSchema);
 
 const customerSchema = new mongoose.Schema({
-    customerId: {
-        type: Number,
-        required: true,
-    },
     username: {
-        type: String,
+        type: {
+            firstName: String,
+            lastName: String,
+        },
         required: true,
     },
     password: {
@@ -35,6 +34,11 @@ const customerSchema = new mongoose.Schema({
         required: true,
     },
     location: String,
+    email: {
+        type: String,
+        required: true,
+    },
+    marketingAccept: Boolean,
     currentCart: {
         type: [{
             productId: Number,

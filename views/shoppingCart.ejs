@@ -9,31 +9,42 @@
 				</header>
 				<div class="mt-4 bg-sweed-gray p-4 rounded-lg text-sweed-white">
 					<ul class="space-y-4">
+						<li class="flex justify-start items-center gap-4">
+							<div class="max-h-[64px] max-w-xs">
+								<a href="/menu"
+									class="block rounded bg-transparent px-5 py-3 font-normal text-sweed-white transition hover:bg-sweed-color-light hover:text-sweed-dark">
+									See the Menu
+								</a>
+							</div>
+						</li>
 						<% cart.forEach((product) => { %>
 							<li class="flex items-center gap-4">
 								<div>
 									<label for="Quantity" class="sr-only"> Quantity </label>
 									<div class="flex items-center rounded border border-sweed-dark">
-										<button type="button"
+										<button type="button" onclick="minusQuantity('<%= product.product.productId %>')"
 											class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
 											&minus;
 										</button>
 										<span>
-											<input type="number" id="<%= product.product.productId %><%= product.product.name %>" value="<%= parseInt(product.quantity) %>" min="0" max="99" onchange="checkRange(this.id)"
-												class="text-sweed-color bg-sweed-dark h-8 w-8 border-y-0 border-gray-200 text-center sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+											<form action="/changeCart" method="post" id="<%= product.product.productId %>form" class="shopForm">
+												<input name="id" type="text" value="<%= product.product.productId %>" class="hidden">
+												<input name="quantity" type="number" id="<%= product.product.productId %>" value="<%= parseInt(product.quantity) %>" min="0" max="99" onchange="checkRange(this.id)"
+													class="text-sweed-color bg-sweed-dark h-8 w-8 border-y-0 border-gray-200 text-center sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" />
+											</form>
 										</span>
-										<button type="button"
+										<button type="button" onclick="plusQuantity('<%= product.product.productId %>')"
 											class="h-8 w-8 leading-8 text-sweed-color transition hover:text-sweed-color-light">
 											&plus;
 										</button>
 									</div>
 								</div>
-								<div class="h-16 w-16 rounded bg-sweed-white"></div>
+								<div class="h-16 w-16 rounded bg-sweed-white lg:flex hidden"></div>
 								<div>
 									<h3 class="text-sm"><%= product.product.name %></h3>
 								</div>
 								<div class="flex flex-1 items-center justify-end gap-2">
-									<span><%= product.product.price %>฿</span>
+									<span>฿<%= product.product.price*product.quantity %></span>
 								</div>
 							</li>
 						<% }) %>
@@ -43,15 +54,15 @@
 							<dl class="space-y-0.5">
 								<div class="flex justify-between">
 									<dt>Subtotal</dt>
-									<dd>฿250</dd>
+									<dd>฿<%= subtotal %></dd>
 								</div>
 								<div class="flex justify-between">
 									<dt>VAT</dt>
-									<dd>฿25</dd>
+									<dd>฿<%= total-subtotal %></dd>
 								</div>
 								<div class="flex justify-between !text-base font-medium text-sweed-color">
 									<dt>Total</dt>
-									<dd>฿200</dd>
+									<dd>฿<%= total %></dd>
 								</div>
 							</dl>
 							<div class="flex justify-end">
@@ -67,6 +78,7 @@
 		</div>
 	</section>
 	<script src="js/cartLimit.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
 
 </html>
