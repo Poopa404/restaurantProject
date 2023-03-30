@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 <%- include('partials/navbar') %>
-<body class="bg-sweed-dark text-sweed-white"></body>
+<body class="bg-sweed-dark text-sweed-white" onload="disableCheckout('<% if(total == 0){ %> true <% } %>')">
 	<section class="lg:w-[70%] w-[80%]  mx-auto">
 		<div class="mx-auto max-w-screen-xl py-8 sm:py-12 lg:px-8">
 			<div class="mx-auto max-w-3xl">
@@ -66,10 +66,16 @@
 								</div>
 							</dl>
 							<div class="flex justify-end">
-								<a href="trackOrder.html"
-									class="block rounded bg-sweed-color px-5 py-3 font-medium text-sweed-gray transition hover:bg-sweed-color-light">
-									Checkout
-								</a>
+								<form action="/addOrder" method="post">
+								<button type="submit" id="checkout"
+									class="block rounded bg-sweed-color px-5 py-3 font-medium text-sweed-gray transition hover:bg-sweed-color-light disabled:bg-sweed-red">
+									<% if(total == 0){ %>
+										Nothing to Order	
+									<% } else { %>
+										Order
+									<% }%>
+								</button>
+								</form>
 							</div>
 						</div>
 					</div>

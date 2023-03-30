@@ -12,15 +12,15 @@ $(document).ready(function(){
       $.post("/addToCart", data, function(resp) {
         console.log("test")
       }) 
+      Swal.fire({
+        icon: 'success',
+        title: 'Product added!',
+        background: '#151515',
+        color: '#EAEAEA',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
-    Swal.fire({
-      icon: 'success',
-      title: 'Product added!',
-      background: '#151515',
-      color: '#EAEAEA',
-      showConfirmButton: false,
-      timer: 1500
-    })
   })
 
 })

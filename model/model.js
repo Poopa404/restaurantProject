@@ -50,6 +50,7 @@ const customerSchema = new mongoose.Schema({
         }],
         required: true,
     },
+    orderCount: Number,
 })
 
 exports.Customer = mongoose.model("Customer", customerSchema);
@@ -69,7 +70,7 @@ const orderSchema = new mongoose.Schema({
     },
     product: {
         type: [{
-            productId: Number,
+            product: productSchema,
             quantity: {
                 type: Number,
                 min: 0,
@@ -78,6 +79,11 @@ const orderSchema = new mongoose.Schema({
         }],
         required: true,
     },
+    subtotal: Number,
+    vat: Number,
+    afterVat: Number,
+    total: Number,
+    date: String
 })
 
 exports.Order = mongoose.model("Order", orderSchema);

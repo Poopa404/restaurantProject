@@ -51,8 +51,8 @@ var menu = [
 
 const Product = model.Product;
 const Customer = model.Customer;
+const Order = model.Order;
 const defaultProduct = require('./model/default');
-const { includes } = require('lodash');
 
 var productsInCart = [];
 
@@ -60,9 +60,11 @@ app.get("/", async (req, res) => {
   var loginUser = {};
   if(req.session.userId != undefined){
     const currentUser = await Customer.findOne({_id: req.session.userId})
-    console.log("login: "+req.session.userId);
-    console.log(currentUser.username)
-    loginUser = currentUser.username;
+    if(currentUser){
+      console.log("login: "+req.session.userId);
+      console.log(currentUser.username)
+      loginUser = currentUser.username;
+    }
   } else {
     console.log(req.session)
     console.log(loginUser);
@@ -81,7 +83,9 @@ app.get("/menu", async (req, res) => {
   var loginUser = {};
   if(req.session.userId != undefined){
     const currentUser = await Customer.findOne({_id: req.session.userId})
-    loginUser = currentUser.username;
+    if(currentUser){
+      loginUser = currentUser.username;
+    }
   }
 
   res.render("menu", {homePage: false, loginUser: loginUser, menu: menu});
@@ -127,6 +131,11 @@ app.get("/register", (req, res) => {
 
 app.post("/register", async (req, res) => {
   var { first_name, last_name, email, password, password_confirmation, marketing_accept } = req.body;
+  if(marketing_accept == "on"){
+    marketing_accept = true;
+  } else {
+    marketing_accept = false;
+  }
   if(password != password_confirmation){
     res.render("register", {
       defaultValue: {
@@ -157,7 +166,8 @@ app.post("/register", async (req, res) => {
         location: "",
         email: email,
         marketingAccept: marketing_accept,
-        currentCart: []
+        currentCart: [],
+        orderCount: 0,
       })
       newRegister.save();
 
@@ -168,42 +178,20 @@ app.post("/register", async (req, res) => {
 })
 
 app.get("/cart", async (req, res) => {
-  var subtotal = 0;
-  var vat = 7;
-  var total = 0;
   var loginUser = {};
-  var currList = [];
-  var proList = [];
-  var idList = [];
+  var listing = {};
   if(req.session.userId != undefined){
     const currentUser = await Customer.findOne({_id: req.session.userId})
     loginUser = currentUser.username;
-    currList = currentUser.currentCart;
+    listing = await productListing(currentUser);
   }
-  currList.forEach((el) => {
-    idList.push(el.productId);
-  })
-  if(idList.length != 0){
-    var prodObj = await Product.find({ productId: { $in: idList } });
-    currList.forEach((el) => {
-      prodObj.forEach((prod) => {
-        if(el.productId == prod.productId){
-          proList.push({ product: prod, quantity: el.quantity })
-          subtotal += prod.price*el.quantity;
-        }
-      })
-    })
-  }
-  total = Math.ceil(subtotal+(subtotal*vat/100));
-  // console.log(subtotal+" "+vat+" "+total)
-
   res.render("shoppingCart", {
     homePage: false,
     loginUser: loginUser,
-    cart: proList,
-    subtotal: subtotal,
-    vat: vat,
-    total: total,
+    cart: listing.proList,
+    subtotal: listing.subtotal,
+    vat: listing.vat,
+    total: listing.total,
   });
 })
 
@@ -251,6 +239,77 @@ app.post("/changeCart", async (req, res) => {
   res.redirect("/cart")
 })
 
+app.post("/addOrder", async (req, res) => {
+  if(req.session.userId != undefined){
+    const currentUser = await Customer.findOne({_id: req.session.userId})
+    if(currentUser){
+      loginUser = currentUser.username;
+      var calList = await productListing(currentUser);
+      var newOrder = new Order({
+        orderId: currentUser.orderCount+1,
+        status: "cooking",
+        customer: currentUser,
+        product: calList.proList,
+        subtotal: calList.subtotal,
+        vat: calList.vat,
+        afterVat: calList.afterVat,
+        total: calList.total,
+        date: new Date().toJSON()
+      })
+      newOrder.save();
+      await Customer.updateOne({ _id: req.session.userId }, { $set: {currentCart: []} })
+      await Customer.updateOne({ _id: req.session.userId }, { $inc: {orderCount: 1} })
+      res.redirect("/")
+    } else {
+      res.redirect("/")
+    }
+  } else {
+    res.redirect("/")
+  }
+})
+
+app.get("/track", async (req, res) => {
+  if(req.session.userId != undefined && await Customer.findOne({ _id: req.session.userId })){
+    const currentUser = await Customer.findOne({_id: req.session.userId})
+    loginUser = currentUser.username;
+    res.render("trackOrder",{
+      homePage: false,
+      loginUser: loginUser,
+      order: newOrder,
+    });
+  } else {
+    res.redirect("/")
+  }
+})
+
 app.all("/*", (req, res) => {
   res.redirect("/")
 })
+
+async function productListing(currentUser){
+  var subtotal = 0;
+  var vat = 7;
+  var total = 0;
+  var proList = [];
+  var idList = [];
+  if(!(currentUser && Object.keys(currentUser).length == 0)){
+    var currList = currentUser.currentCart;
+    currList.forEach((el) => {
+      idList.push(el.productId);
+    })
+    if(idList.length != 0){
+      var prodObj = await Product.find({ productId: { $in: idList } });
+      currList.forEach((el) => {
+        prodObj.forEach((prod) => {
+          if(el.productId == prod.productId){
+            proList.push({ product: prod, quantity: el.quantity })
+            subtotal += prod.price*el.quantity;
+          }
+        })
+      })
+    }
+    total = Math.ceil(subtotal+(subtotal*vat/100));
+  }
+  // console.log({ proList: proList, subtotal: subtotal, vat: vat, total: total })
+  return { proList: proList, subtotal: subtotal, vat: vat, afterVat: subtotal*vat/100 , total: total }
+}

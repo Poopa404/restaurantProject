@@ -21,3 +21,7 @@ function plusQuantity(id){
 	$('#'+id).attr('value', currValue);
 	checkRange(id);
 }
+
+function disableCheckout(bool){
+	$('#checkout').prop('disabled', bool);
+}
