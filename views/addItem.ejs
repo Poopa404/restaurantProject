@@ -1,5 +1,80 @@
 <%- include('partials/header') %>
+
 <body class="bg-sweed-dark">
+  <!-- nav bar -->
+	<header id="mainMenuNavbar" aria-label="Site Header"
+  class="fixed border-sweed-dark w-full z-20 bg-sweed-gray transition-all duration-700 top-0 left-0">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="md:flex md:items-center md:gap-12">
+        <a class="flex flex-row text-sweed-color text-lg py-2 px-4" href="/">
+          <svg class="w-8 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408.83 342.29">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: currentColor;
+                }
+              </style>
+            </defs>
+            <path class="cls-1"
+              d="M227.85,263.88l-22.33-22.33S206.22,132,256.45,79c0,0,99.07,104.65,25.12,291.62,0,0,96.27-26.51,143.72-149.3,0,0-55.82,14-93.49,58.6l1.39-32.09s67-54.41,115.82-51.62c0,0,0,114.41-157.67,195.34,0,0,61.39,23.72,125.57-5.58,0,0,5.58-8.37-46-15.35l19.53-19.53s54.42,18.13,64.19,33.48c0,0-85.12,71.16-199.53,15.35-80.93-60-173-16.74-173-16.74s40.46,25.11,113,12.56l30.7,12.55s-107.44,40.47-180-23.72c0,0,68.37-65.58,192.55-19.53,0,0-25.11-97.67-147.9-143.72,0,0,1.4,46.05,67,103.25L130.87,326s-60-50.23-67-129.76c0,0,127,2.79,196.74,164.64,0,0,61.39-129.76-4.19-247C256.45,113.88,223,164.11,227.85,263.88Z"
+              transform="translate(-45.76 -79)" />
+          </svg>
+          <span class="">SWEED</span>
+
+        </a>
+      </div>
+
+      
+      <div class="flex items-center gap-4">
+        <div class="sm:flex sm:gap-4 h-10">
+          <a class="rounded-md bg-sweed-color hover:bg-sweed-color-light flex flex-row px-5 py-2 text-sm font-medium text-sweed-gray shadow"
+            href="register.html">
+            <span class="hidden sm:block">Logout</span>
+            <svg class="w-6 sm:ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: currentColor;
+                  }
+                </style>
+              </defs>
+              <path class="cls-1"
+                d="M250,50a199.33,199.33,0,1,1-77.84,15.71A198.76,198.76,0,0,1,250,50m0-20C128.5,30,30,128.5,30,250a220,220,0,0,0,440,0c0-121.5-98.5-220-220-220Z"
+                transform="translate(-30 -30)" />
+              <ellipse class="cls-1" cx="220" cy="361" rx="155.62" ry="69" />
+              <path class="cls-1"
+                d="M250,332a199.47,199.47,0,0,1,141.84,59,200,200,0,0,1-283.68,0A199.47,199.47,0,0,1,250,332m0-20A219.49,219.49,0,0,0,81.13,391a220,220,0,0,0,337.74,0A219.49,219.49,0,0,0,250,312Z"
+                transform="translate(-30 -30)" />
+              <circle class="cls-1" cx="220.5" cy="171.5" r="76.5" />
+              <path class="cls-1"
+                d="M250.5,135A66.5,66.5,0,1,1,184,201.5,66.57,66.57,0,0,1,250.5,135m0-20A86.5,86.5,0,1,0,337,201.5,86.5,86.5,0,0,0,250.5,115Z"
+                transform="translate(-30 -30)" />
+            </svg>
+          </a>
+
+          <div class="hidden sm:flex">
+            <a class="flex flex-row rounded-md bg-sweed-white hover:bg-white px-5 py-2 text-sm font-medium text-sweed-gray"
+              href="/status">
+              <span class="hidden sm:block">Order List</span>
+              
+            </a>
+          </div>
+        </div>
+
+        <div class="block md:hidden">
+          <button class="rounded bg-sweed-white p-2 text-sweed-gray transition hover:text-sweed-color">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<br><br>
 <!-- list -->
 <section class="">
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -8,92 +83,70 @@
             <nav aria-label="Main Nav" class="flex flex-col space-y-2">
               <div>
                 <strong class="block text-xs font-medium uppercase text-sweed-color">
-                  General
+                  Stoner
                 </strong>
           
-                <ul class="mt-2 space-y-1 text-sweed-white">
+                <ul class="mt-2 space-y-1">
+                  <% allStoner.forEach((pro) => { %>
                   <li>
-                    <a href="" class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-sweed-white">
-                      Profile
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-sweed-white hover:text-sweed-color-light">
+                      <%= pro.name %>
                     </a>
                   </li>
-          
-                  <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium">
-                      Team
-                    </a>
-                  </li>
-          
-                  <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium">
-                      Projects
-                    </a>
-                  </li>
+                  <% }) %>
                 </ul>
               </div>
           
               <div>
                 <strong class="block text-xs font-medium uppercase text-sweed-color">
-                  Support
+                  Stone-free
                 </strong>
           
-                <ul class="mt-2 space-y-1 text-sweed-white">
+                <ul class="mt-2 space-y-1">
+                  <% allFree.forEach((pro) => { %>
                   <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                      Update
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-sweed-white hover:text-sweed-color-light">
+                      <%= pro.name %>
                     </a>
                   </li>
-          
-                  <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                      Help
-                    </a>
-                  </li>
-          
-                  <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                      Settings
-                    </a>
-                  </li>
+                  <% }) %>
                 </ul>
               </div>
           
               <div>
                 <strong class="block text-xs font-medium uppercase text-sweed-color">
-                  Profile
+                  Drink
                 </strong>
           
-                <ul class="mt-2 space-y-1 text-sweed-white">
+                <ul class="mt-2 space-y-1">
+                  <% allDrink.forEach((pro) => { %>
                   <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                      Details
+                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-sweed-white hover:text-sweed-color-light">
+                      <%= pro.name %>
                     </a>
                   </li>
-          
-                  <li>
-                    <a href="" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                      Subscription
-                    </a>
-                  </li>
-          
-                  <li>
-                    <form action="/logout">
-                      <button
-                        type="submit"
-                        class="block w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                      >
-                        Logout
-                      </button>
-                    </form>
-                  </li>
+                  <% }) %>
                 </ul>
+              </div>
+
+              <div>
+                <strong class="block text-xs font-medium uppercase text-sweed-color hover:text-sweed-white">
+                  <form action="/logout">
+                    <button
+                      type="submit"
+                      class="block w-full rounded-lg py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    >
+                      New Product
+                    </button>
+                  </form>
+                </strong>
               </div>
             </nav>
           </div>
           
   
         <div class="rounded-lg bg-sweed-gray p-8 shadow-lg lg:col-span-3 lg:p-12">
-          <form action="" class="space-y-4">
+          <form action="/addItem" method="post" class="space-y-4">
             <div>
               <label class="sr-only" for="name">Name</label>
               <input
@@ -101,22 +154,27 @@
                 placeholder="Name"
                 type="text"
                 id="name"
+                name="productName"
+                value=""
+                required
               />
             </div>
   
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label class="sr-only" for="email">Email</label>
+                <label class="sr-only" for="email">Price</label>
                 <input
                   class="w-full rounded-lg p-3 text-sm"
                   placeholder="Price"
                   type="price"
                   id="price"
+                  name="productPrice"
+                  value=""
+                  required
                 />
               </div>
   
             </div>
-<!-- catagories -->
             <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
               <div>
                 <input
@@ -125,12 +183,15 @@
                   type="radio"
                   tabindex="-1"
                   name="option"
+                  value="stoner"
+                  required
                 />
   
                 <label
                   for="Stoner"
                   class="cursor-pointer block w-full rounded-lg border border-sweed-color text-sweed-color p-3 hover:border-sweed-white hover:text-sweed-white peer-checked:border-sweed-dark peer-checked:bg-sweed-color peer-checked:text-sweed-gray"
                   tabindex="0"
+                  name="productStoner"
                 >
                   <span class="text-sm font-medium "> Stoner </span>
                 </label>
@@ -143,12 +204,15 @@
                   type="radio"
                   tabindex="-1"
                   name="option"
+                  value="free"
+                  required
                 />
   
                 <label
                   for="Stone-free"
                   class="cursor-pointer block w-full rounded-lg border  border-sweed-color text-sweed-color p-3 hover:border-sweed-white hover:text-sweed-white peer-checked:border-sweed-dark peer-checked:bg-sweed-color peer-checked:text-sweed-gray"
                   tabindex="0"
+                  name="productFree"
                 >
                   <span class="text-sm font-medium"> Stone-free </span>
                 </label>
@@ -161,18 +225,20 @@
                   type="radio"
                   tabindex="-1"
                   name="option"
+                  value="drink"
+                  required
                 />
   
                 <label
                   for="Drink"
                   class="cursor-pointer block w-full rounded-lg border  border-sweed-color text-sweed-color p-3 hover:border-sweed-white hover:text-sweed-white peer-checked:border-sweed-dark peer-checked:bg-sweed-color peer-checked:text-sweed-gray"
                   tabindex="0"
+                  name="productDrink"
                 >
                   <span class="text-sm font-medium"> Drink </span>
                 </label>
               </div>
             </div>
-<!-- pic input -->
             <div class="flex items-center justify-center w-full">
                 <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-sweed-white border-sweed-dark">
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -183,11 +249,11 @@
                     <input id="dropzone-file" type="file" class="hidden" />
                 </label>
             </div> 
-  
+          
             <div class="mt-4">
               <button
                 type="submit"
-                class="inline-block w-full rounded-lg bg-sweed-gray px-5 py-3 font-medium text-sweed-color sm:w-auto"
+                class="inline-block w-full rounded-lg bg-sweed-gray px-5 py-3 font-medium text-sweed-color sm:w-auto hover:text-sweed-white"
               >
                 Send Enquiry
               </button>

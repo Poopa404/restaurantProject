@@ -91,6 +91,37 @@ app.get("/menu", async (req, res) => {
   res.render("menu", {homePage: false, loginUser: loginUser, menu: menu});
 })
 
+app.get("/addItem", async (req, res) => {
+  const allStoner = await Product.find({ category: "stoner" });
+  const allFree = await Product.find({ category: "free" });
+  const allDrink = await Product.find({ category: "drink" });
+  res.render("addItem", {
+    allStoner: allStoner,
+    allFree: allFree,
+    allDrink: allDrink,
+  });
+})
+
+app.post("/addItem", async (req, res) => {
+  const newId = (await Product.find()).length+1;
+  const newProduct = new Product({
+    productId: newId,
+    name: req.body.productName,
+    category: req.body.option,
+    price: req.body.productPrice,
+  })
+  newProduct.save();
+  console.log(newProduct)
+  res.redirect("/addItem")
+})
+
+app.get("/status", async (req, res) => {
+  const orderList = await Order.find();
+  res.render("statusCheck",{
+    orderList: orderList,
+  })
+})
+
 app.get("/login", (req, res) => {
   res.render("login", {
     email: "",
@@ -100,15 +131,19 @@ app.get("/login", (req, res) => {
 
 app.post("/login", async (req, res) => {
   var { email, password } = req.body;
-  const oldUser = await Customer.findOne({email: email, password: password});
-  if(oldUser){
-    req.session.userId = oldUser.id;
-    res.redirect("/");
+  if(email == "admin@admin" && password == "password"){
+    res.redirect("/addItem");
   } else {
-    res.render("login", {
-      email: email,
-      warning: "Email or Password incorrect!"
-    });
+    const oldUser = await Customer.findOne({email: email, password: password});
+    if(oldUser){
+      req.session.userId = oldUser.id;
+      res.redirect("/");
+    } else {
+      res.render("login", {
+        email: email,
+        warning: "Email or Password incorrect!"
+      });
+    }
   }
 })
 
@@ -277,7 +312,6 @@ app.get("/track:orderId", Authen.authentication, async (req, res) => {
   }
 })
 
-
 app.get("/profile", Authen.authentication, async (req, res) =>{
   const currentUser = await Customer.findOne({_id: req.session.userId})
   const allOrder = await Order.find({ "customer.customerId": currentUser.customerId })
@@ -287,6 +321,10 @@ app.get("/profile", Authen.authentication, async (req, res) =>{
     loginUser: loginUser,
     order: allOrder,
   });
+})
+
+app.post("/addLocation", Authen.authentication, async (req, res) => {
+  res.redirect("/profile")
 })
 
 app.all("/*", (req, res) => {

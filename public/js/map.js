@@ -13,22 +13,24 @@ const marker1 = new mapboxgl.Marker()
 const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     language: 'en-EN',
-    mapboxgl: mapboxgl
+    mapboxgl: mapboxgl,
+    enableGeolocation: true,
 });
-const geocoderBar = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    language: 'en-EN',
-    mapboxgl: mapboxgl
-});
+
 map.addControl(geocoder);
 
-geocoderBar.addTo('#geoBar')
-$(document).ready(function () {
-    $('#geoBar .mapboxgl-ctrl').addClass("w-full max-w-none h-full bg-sweed-dark")
-    $('#geoBar .mapboxgl-ctrl-geocoder--input').addClass("text-sweed-white focus:text-sweed-white focus:animate-pulse")
-    $('#geoBar .mapboxgl-ctrl-geocoder--button').addClass("bg-transparent")
-    // $('#title').mouseup(function () { 
-    //     //console.log(geocoder.getProximity())
-    //     console.log(marker1.getLngLat())
-    // });
-});
+geocoder.on('result', (result) => {
+    console.log(result.result);
+    const thing = {
+        test: 1
+    };
+    $.post("/addLocation", thing, (data, status) => {
+    });
+})
+
+// $(document).ready(function () {
+
+//      $('#title').mouseup(function () { 
+//         console.log(geocoder.getProximity())
+//      });
+// });
