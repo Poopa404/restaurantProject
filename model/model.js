@@ -22,6 +22,10 @@ const productSchema = new mongoose.Schema({
 exports.Product = mongoose.model("Product", productSchema);
 
 const customerSchema = new mongoose.Schema({
+    customerId: {
+        type: String,
+        required: true,
+    },
     username: {
         type: {
             firstName: String,

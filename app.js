@@ -157,7 +157,9 @@ app.post("/register", async (req, res) => {
         warning: "Account already exist!",
       });
     } else {
+      const newId = Math.floor(Math.floor(Math.random() * 100)*Math.random()*Date.now()/100)
       const newRegister = new Customer({
+        customerId: newId,
         username: {
           firstName: first_name,
           lastName: last_name
@@ -177,14 +179,12 @@ app.post("/register", async (req, res) => {
   }
 })
 
-app.get("/cart", async (req, res) => {
+app.get("/cart", Authen.authentication, async (req, res) => {
   var loginUser = {};
   var listing = {};
-  if(req.session.userId != undefined){
-    const currentUser = await Customer.findOne({_id: req.session.userId})
-    loginUser = currentUser.username;
-    listing = await productListing(currentUser);
-  }
+  const currentUser = await Customer.findOne({_id: req.session.userId})
+  loginUser = currentUser.username;
+  listing = await productListing(currentUser);
   res.render("shoppingCart", {
     homePage: false,
     loginUser: loginUser,
@@ -195,29 +195,28 @@ app.get("/cart", async (req, res) => {
   });
 })
 
-app.post("/addToCart", async (req, res) => {
-  if(req.session.userId != undefined){
-    const currentUser = await Customer.findOne({_id: req.session.userId})
-    var productToAdd = req.body.submit;
-    var proId = parseInt(productToAdd);
-    var currCart = currentUser.currentCart;
-    var newPro = true;
-    currCart.forEach((element) => {
-      if(element.productId == proId){
-        element.quantity += 1;
-        newPro = false;
-      }
-    })
-    if(newPro){
-      currCart.push({productId: proId, quantity: 1})
+app.post("/addToCart", Authen.authentication, async (req, res) => {
+  const currentUser = await Customer.findOne({_id: req.session.userId})
+  var productToAdd = req.body.submit;
+  var proId = parseInt(productToAdd);
+  var currCart = currentUser.currentCart;
+  var newPro = true;
+  currCart.forEach((element) => {
+    if(element.productId == proId){
+      element.quantity += 1;
+      newPro = false;
     }
-    await Customer.updateOne({ _id: req.session.userId }, { $set: {currentCart: currCart} })
-    // console.log(currCart);
-    res.sendStatus(200);
+  })
+  if(newPro){
+    currCart.push({productId: proId, quantity: 1})
   }
+  await Customer.updateOne({ _id: req.session.userId }, { $set: {currentCart: currCart} })
+  // console.log(currCart);
+  res.sendStatus(200);
+  
 })
 
-app.post("/changeCart", async (req, res) => {
+app.post("/changeCart", Authen.authentication, async (req, res) => {
   const currentUser = await Customer.findOne({ _id: req.session.userId } )
   const currCart = currentUser.currentCart;
   var idToChange = req.body.id;
@@ -239,47 +238,55 @@ app.post("/changeCart", async (req, res) => {
   res.redirect("/cart")
 })
 
-app.post("/addOrder", async (req, res) => {
-  if(req.session.userId != undefined){
-    const currentUser = await Customer.findOne({_id: req.session.userId})
-    if(currentUser){
-      loginUser = currentUser.username;
-      var calList = await productListing(currentUser);
-      var newOrder = new Order({
-        orderId: currentUser.orderCount+1,
-        status: "cooking",
-        customer: currentUser,
-        product: calList.proList,
-        subtotal: calList.subtotal,
-        vat: calList.vat,
-        afterVat: calList.afterVat,
-        total: calList.total,
-        date: new Date().toJSON()
-      })
-      newOrder.save();
-      await Customer.updateOne({ _id: req.session.userId }, { $set: {currentCart: []} })
-      await Customer.updateOne({ _id: req.session.userId }, { $inc: {orderCount: 1} })
-      res.redirect("/")
-    } else {
-      res.redirect("/")
-    }
+app.post("/addOrder", Authen.authentication, async (req, res) => {
+  const currentUser = await Customer.findOne({_id: req.session.userId})
+  loginUser = currentUser.username;
+  var calList = await productListing(currentUser);
+  var newId = currentUser.orderCount+1
+  var newOrder = new Order({
+    orderId: newId,
+    status: "Cooking",
+    customer: currentUser,
+    product: calList.proList,
+    subtotal: calList.subtotal,
+    vat: calList.vat,
+    afterVat: calList.afterVat,
+    total: calList.total,
+    date: new Date().toJSON()
+  })
+  newOrder.save();
+  await Customer.updateOne({ _id: req.session.userId }, { $set: {currentCart: []} })
+  await Customer.updateOne({ _id: req.session.userId }, { $inc: {orderCount: 1} })
+  res.redirect("/track"+newId)
+  
+})
+
+app.get("/track:orderId", Authen.authentication, async (req, res) => {
+  const orderToFind = req.params.orderId;
+  const currentUser = await Customer.findOne({ _id: req.session.userId })
+  const order = await Order.findOne({ "customer.customerId": currentUser.customerId, orderId: orderToFind })
+  loginUser = currentUser.username;
+  if(order){
+    res.render("trackOrder",{
+      homePage: false,
+      loginUser: loginUser,
+      order: order,
+    });
   } else {
     res.redirect("/")
   }
 })
 
-app.get("/track", async (req, res) => {
-  if(req.session.userId != undefined && await Customer.findOne({ _id: req.session.userId })){
-    const currentUser = await Customer.findOne({_id: req.session.userId})
-    loginUser = currentUser.username;
-    res.render("trackOrder",{
-      homePage: false,
-      loginUser: loginUser,
-      order: newOrder,
-    });
-  } else {
-    res.redirect("/")
-  }
+
+app.get("/profile", Authen.authentication, async (req, res) =>{
+  const currentUser = await Customer.findOne({_id: req.session.userId})
+  const allOrder = await Order.find({ "customer.customerId": currentUser.customerId })
+  loginUser = currentUser.username;
+  res.render("profile",{
+    homePage: false,
+    loginUser: loginUser,
+    order: allOrder,
+  });
 })
 
 app.all("/*", (req, res) => {
@@ -313,3 +320,4 @@ async function productListing(currentUser){
   // console.log({ proList: proList, subtotal: subtotal, vat: vat, total: total })
   return { proList: proList, subtotal: subtotal, vat: vat, afterVat: subtotal*vat/100 , total: total }
 }
+

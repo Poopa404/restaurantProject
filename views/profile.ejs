@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<body class="flex justify-center bg-sweed-dark text-sweed-white">
+    <%- include('partials/navbar') %>
+    <div class="container mx-auto my-20">
+        <div>
+            <div class="bg-sweed-gray relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto p-4">
+                <div class="">
+                    <h1 class="font-bold text-center text-3xl" id="title"><%= loginUser.firstName %> <%= loginUser.lastName %></h1>
+                    <br>
+                    <div class="w-full">
+                        <h3 class="font-medium text-left px-6">Location</h3>
+                        <div id='map' class="h-96 mt-5">
+                            <div ></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="w-full">
+                        <h3 class="font-medium text-left px-6">Order</h3>
+                        <div class="mt-5 w-full flex flex-col items-center overflow-hidden text-sm">
+                            <% order.forEach((ord) => { %>
+                            <a href="/track<%= ord.orderId %>" class="w-full border-t py-4 pl-6 pr-3 block hover:bg-sweed-dark transition duration-150">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <span class="text-sweed-red animate-pulse text-base font-medium"><%= ord.status %></span>
+                                        <span>: Order <%= ord.orderId %> <%= new Date(ord.date).toLocaleDateString() %> <%= new Date(ord.date).toLocaleTimeString() %> </span>
+                                    </div>
+                                    <span>$<%= ord.total %></span>
+                                </div>
+                            </a>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
