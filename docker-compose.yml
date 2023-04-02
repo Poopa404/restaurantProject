@@ -4,13 +4,13 @@ services:
            container_name: sweed
            image: somth/sweed
            restart: always
-           build: .
+          #  build: .
            ports:
              - "3000:3000"
-           links:
-             - mongo
-       mongo:
-             container_name: mongo
-             image: mongo
-             ports:
-               - '27017:27017'
+          #  links:
+          #    - mongo
+      #  mongo:
+      #        container_name: mongo
+      #        image: mongo
+      #        ports:
+      #          - '27017:27017'
