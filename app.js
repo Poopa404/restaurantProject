@@ -8,6 +8,7 @@ const Authen = require("./control/authen");
 const express = require('express');
 const { async } = require('postcss-js');
 const app = express();
+require('dotenv').config();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,11 +27,13 @@ app.use(
     saveUninitialized: true,
     cookie: { maxAge: 3600000 }, //one hour
     store: MongoStore.create({
-    mongoUrl: "mongodb://127.0.0.1:27017/sweedDb"}),
+    //mongoUrl: "mongodb://127.0.0.1:27017/sweedDb"}),
+    mongoUrl: process.env.MONGO_URI}),
+    
   })
 );
-  
-
+//mongoSweed
+//D7t2Jzzg5LDEGFzr
 var menu = [
   {
     type: "stoner",
