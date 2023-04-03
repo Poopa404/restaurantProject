@@ -9,7 +9,7 @@
 ---
 
 # Username
-#### Poopa404
+#### Poopa404 & NOHP404
 > 642115037 Poopa 
-#### GigaSora
+#### GigaSora & Sora24Giga
 > 642115002 Krittayoch
