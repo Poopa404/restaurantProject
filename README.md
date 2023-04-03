@@ -10,6 +10,6 @@
 
 # Username
 #### Poopa404
-> Poopa Somthawil 642115037
+> 642115037 Poopa 
 #### GigaSora
-> 
+> 642115002 Krittayoch
